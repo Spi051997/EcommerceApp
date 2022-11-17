@@ -6,6 +6,11 @@ const expresswinsoton=require('express-winston')
 const connnection=require('./config/mongoose');
 const ProductRouter=require('./routeer/ProductRouter');
 const  errorhandling=require('./middleware/error');
+// const Test=require('chai-http');
+// const Test2=require('mocha');
+// const Test3=require('chai')
+// console.log(`Test_1:${Test} Test_2:${Test2} Test3:${Test3}`)
+
 // const { Server } = require('socket.io');
 connnection;
 // app.use(expresswinsoton.logger({
@@ -51,3 +56,5 @@ process.on("unhandleRejection",err=>{
     process.exit(1);  
    })
 })
+
+module.exports=app;

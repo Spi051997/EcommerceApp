@@ -102,7 +102,7 @@ const Getproductbyid = asynchandller(async (req, res, next) => {
 });
 
 const SerachProduct = asynchandller(async (req, res) => {
-  const apiFeatures = new ApiFeatures(Product.find(), req.query).search();
+  const apiFeatures = new ApiFeatures(Product.find(), req.query).search().filter();
   const product = await apiFeatures.query;
 
   res.status(200).json({
@@ -134,6 +134,22 @@ const tryserach = asynchandller(async (req, res) => {
     throw new Error("Could find the prodcut");
   }
 });
+
+
+//  filter the data 
+
+const Filterdata=asynchandller(async(req,res)=>{
+ 
+
+   let match={}
+  const filterserachkeyword=req.query.keyword;
+
+   if(filterserachkeyword)
+   {
+     match.category={$regex: req.query.keyword, $options: "i"}
+   }
+
+})
 module.exports = {
   ProductRegistration,
   GetProduct,
